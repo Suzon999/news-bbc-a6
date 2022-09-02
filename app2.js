@@ -29,25 +29,40 @@ const loadCategoryDetails = (id) => {
 
 const displayCategoryDetails = details => {
 
-    console.log(details)
+    // console.log(details)
     const newsBodyContainer = document.getElementById('news-body');
     newsBodyContainer.innerHTML = ''
     details.forEach(detail => {
         console.log(detail);
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
-                <div class="card mb-3" >
+                <div class="card mb-3 p-4" >
                 <div class="row g-0">
                     <div class="col-md-4">
                     <img src="${detail.thumbnail_url}" class="img-fluid rounded-start" alt="...">
                     </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                    <h5 class="card-title">${detail.title}</h5>
-                    <p class="card-text">${detail.details.slice(0, 500)}</p>
-                    <p class="card-text"></p>
+                    <h4 class="card-title">${detail.title}</h4>
+                    <p class="card-text my-3">${detail.details.slice(0, 400)}</p>
+                    <div class="row">
+                    <div class="col-md-4 d-flex  justify-content-between">
+                        <img class="w-25 rounded-circle me-3" src="${detail.author.img}" alt="">
+                        <div>
+                        <h6>${detail.author.name ? detail.author.name : 'NO Name Found'}</h6>
+                        <p> ${detail.author.published_date ? detail.author.published_date : 'NO Date Found'}</p>
+                         </div>
+                       
                     </div>
-                </div>
+                    <div class="col-md-4">
+                        <p></p>
+                        <h4> ${detail.total_view} M</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <h4 class='btn btn-primary'>Details</h4>
+                    </div>
+                   
+               
                 </div>
             </div>
                 `;
