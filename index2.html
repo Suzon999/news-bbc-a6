@@ -1,3 +1,92 @@
-<div>
+<!DOCTYPE html>
+<html lang="en">
 
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Question Answer</title>
+</head>
+
+<body class="container">
+    <header>
+        <section>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+                <div class="container-fluid">
+                    <h4 class="navbar-brand" href="#">JavaScript Question Answer</h4>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-auto">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active mx-5" aria-current="page" href="index2.html">blog</a>
+                            <a class="navbar-brand rounded-circle" href="#">
+                                <img class="rounded-circle" src="img/pic.jfif" alt="" width="30" height="24">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </header>
+    <main>
+        <section class="my-lg-5">
+            <h1 class="my-5"> 1. Difference Between var, let, and const in JavaScript</h1>
+            <p>In the early days of JavaScript, there was only one way to declare variables and that was using the var
+                keyword. However, there were some issues associated with variables declared using the var keyword so it
+                was necessary to evolve new ways for variable declaration. With the advent of ES6, now developers are
+                able to define variables according to their specific needs, thanks to two new keywords: let and const.
+
+                All three of these three keywords have similarities in their syntax for declaring variables. However,
+                they differ in their usage and scope, as detailed in the next section.</p>
+            The differences between var, let, and const variable declaration in JavaScript include:
+            Variables declared with var and const are scoped to the immediate function body.
+            Variables declared with the var keyword are hoisted. Hoisting means that the variable can be accessed in
+            their enclosing scope even before they are declared.
+            Variables declared with the let keyword are block-scoped, which means the variables will have scope to the
+            immediate enclosing block.
+
+            Let us now discuss, in detail, how these keywords can make a developer’s code more efficient and how to use
+            each keyword to declare variables in JavaScript programs.
+        </section>
+        <section class="my-lg-5">
+            <h1>2.Differences Between Arrow and Regular Functions</h1>
+            <p>While both the regular and arrow syntaxes define functions, when would you choose one instead of another?
+                That's a good question.
+
+                In this post, I'll show the main differences between the two, so you could choose the right syntax for
+                your needs. <br>
+                Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.
+
+                The dynamic context means that the value of this depends on how the function is invoked. In JavaScript,
+                there are 4 ways you can invoke a regular function.
+            </p>
+        </section>
+        <section>
+            <h1>3..forEach(), .map(), .filter(). What's the difference?</h1>
+            <p>
+                .forEach(), is used to execute the same code on every element in an array but does not change the array
+                and it returns undefined. <br>
+                .map() executes the same code on every element in an array and returns a new array with the updated
+                elements. <br>
+                .filter() checks every element in an array to see if it meets a certain criteria and returns a new array
+                with the elements that return truthy for the criteria.
+
+            </p>
+        </section>
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

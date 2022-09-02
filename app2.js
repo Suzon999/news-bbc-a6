@@ -69,38 +69,28 @@ const displayCategoryDetails = details => {
         newsBodyContainer.appendChild(cardDiv);
 
     })
-
+    // spinner(false)
 }
+// spenir showing 
+// document.getElementById("").innerHTML = addEventListener("click", function () {
+//     // start loder 
+//     spinner(true)
 
-
-
-// const displayCategoryDetails = details => {
-//     const newsBodyContainer = document.getElementById('news-body');
-//     console.log(details)
-//     details.forEach(detail => {
-//         console.log(detail);
-//         const cardDiv = document.createElement('div');
-//         cardDiv.innerHTML = `
-//         <div class="card mb-3" >
-//         <div class="row g-0">
-//             <div class="col-md-4">
-//             <img src="${detail.thumbnail_url}" class="img-fluid rounded-start" alt="...">
-//             </div>
-//         <div class="col-md-8">
-//             <div class="card-body">
-//             <h5 class="card-title">${detail.title}</h5>
-//             <p class="card-text">${detail.details}</p>
-//             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-//             </div>
-//         </div>
-//         </div>
-//     </div>
-//         `;
-//         newsBodyContainer.appendChild(cardDiv);
-
-//     })
+// })
+// // spinner function 
+// const spinner = isLoading => {
+//     const loderSection = document.getElementById("loading");
+//     if (isLoading === true) {
+//         loderSection.classList.remove("d-none");
+//     }
+//     else {
+//         loderSection.classList.add("d-none");
+//     }
 // }
-// displayCategoryDetails()
+
+
+
+
 loadCategoryDetails();
 loadCatagory();
 
