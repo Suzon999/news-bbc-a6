@@ -4,7 +4,7 @@ const loadCatagory = () => {
         .then(data => displayCatagory(data.data.news_category))
         .catch(error => displayCatagory(error))
 }
-loadCatagory();
+
 const displayCatagory = categories => {
     // console.log(categories);
     const categoryContainer = document.getElementById("load-catagorious");
@@ -23,10 +23,41 @@ const displayCatagory = categories => {
 const loadCategoryDetails = (id) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
-        .then(data => console.log(data.data))
-        .catch(error => console.log(error))
+        .then(data => displayCategoryDetails(data.data))
+        .catch(error => displayCategoryDetails(error))
 }
-loadCategoryDetails();
+
+const displayCategoryDetails = details => {
+
+    console.log(details)
+    const newsBodyContainer = document.getElementById('news-body');
+    newsBodyContainer.innerHTML = ''
+    details.forEach(detail => {
+        console.log(detail);
+        const cardDiv = document.createElement('div');
+        cardDiv.innerHTML = `
+                <div class="card mb-3" >
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="${detail.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">${detail.title}</h5>
+                    <p class="card-text">${detail.details.slice(0, 500)}</p>
+                    <p class="card-text"></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+                `;
+        newsBodyContainer.appendChild(cardDiv);
+
+    })
+
+}
+
+
 
 // const displayCategoryDetails = details => {
 //     const newsBodyContainer = document.getElementById('news-body');
@@ -54,8 +85,9 @@ loadCategoryDetails();
 
 //     })
 // }
-
-
+// displayCategoryDetails()
+loadCategoryDetails();
+loadCatagory();
 
 
 
