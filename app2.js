@@ -11,6 +11,7 @@ const displayCatagory = categories => {
     categories.forEach(category => {
         // console.log(category)
         const categoryDiv = document.createElement('li');
+
         categoryDiv.classList.add('flex-items');
         categoryDiv.innerHTML = `
         <a onclick="loadCategoryDetails('${category.category_id}')" class="nav-link">${category.category_name}</a>
@@ -30,7 +31,8 @@ const loadCategoryDetails = (id) => {
 // display catagory --------------------------------------------------------------=
 const displayCategoryDetails = details => {
     document.getElementById("spinner").style.display = "none";
-
+    // sort ------------------------------------------------------------
+    details.sort((a, b) => b.total_view - a.total_view);
     // length chack -----------------------------------------------------------------
     if (details.length > 0) {
         const totallength = details.length;
@@ -40,7 +42,7 @@ const displayCategoryDetails = details => {
 
         const totallength = details.length;
         const inputfildText = document.getElementById('input-id');
-        inputfildText.innerText = 'Total ' + ' ' + 'Not Update ';
+        inputfildText.innerText = 'Total ' + ' ' + totallength + ' Update ';
 
 
     }
@@ -50,6 +52,7 @@ const displayCategoryDetails = details => {
     details.forEach(detail => {
         // console.log(detail._id);
         const cardDiv = document.createElement('div');
+
         cardDiv.innerHTML = `
                 <div class="card mb-3 p-4" >
                 <div class="row g-0">

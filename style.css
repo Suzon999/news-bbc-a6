@@ -6,6 +6,13 @@
 
 }
 
+#load-catagorious li a {
+    cursor: pointer;
+}
+
+#load-catagorious li a:hover {
+    color: blue;
+}
 
 .flex-items a {
     text-decoration: none;
