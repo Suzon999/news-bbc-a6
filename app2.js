@@ -25,7 +25,7 @@ const loadCategoryDetails = (id) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => displayCategoryDetails(data.data))
-    // .catch(error => displayCategoryDetails(error))
+        .catch(error => displayCategoryDetails(error))
 }
 // display catagory --------------------------------------------------------------=
 const displayCategoryDetails = details => {
@@ -69,12 +69,13 @@ const displayCategoryDetails = details => {
                     
                        </div>
                         
-                       
                     </div>
-                    <div class="col-lg-3">
-                        <p></p>
-                        <h4> ${detail.total_view ? detail.total_view : '00'} M</h4>
-                    </div>
+
+                    <div class="col-md-3 d-flex ">
+                                          <h5 class=' me-1 class= "py-2"' ><i class="fa-regular fa-eye"></i></h5>
+                                         <h5 >${detail.total_view ? detail.total_view : 'NO views'}   M</h5>
+                                 </div>
+                    
                     <div class="col-lg-3 d-flex">
                     <h5><i class="fa-solid fa-star"></i></h5>
                     <h5><i class="fa-solid fa-star"></i></h5>
@@ -115,7 +116,7 @@ const viewClickDetails = (id) => {
 
 const viewClickDetailsDisplay = details => {
 
-    // console.log(details)
+    console.log(details)
     const modal = document.getElementById('exampleModalLabel');
     modal.innerHTML = ''
 
@@ -129,13 +130,23 @@ const viewClickDetailsDisplay = details => {
                                          <h3 class="card-text my-3">${details.data[0].title}</h3>
                                          <p>${details.data[0].details.slice(0, 250) + ' ' + 'more.....'}</p>
                                          <h5 h5 > ${details.data[0].author.published_date}</h5 >
+                                         <div class= "d-flex align-items-center justify-content-center ">
+                                           <div class = "mx-auto">
+                                           <img class="w-25 rounded-circle my-2 d-block"  src="${details.data[0].author.img}" alt="" >
+                                           <p class = 'text '>${details.data[0].author.name ? details.data[0].author.name : 'No author Name!'}</p>
+                                           </div>
+                                         </div>
+                                         <div class="col-md-3 d-flex ">
+                                          <h5 class='mx-2 class= "py-2"' ><i class="fa-regular fa-eye"></i></h5>
+                                         <h5 > ${details.data[0].total_view ? details.data[0].total_view : 'not view'} M</h5>
+                                 </div>
                              </div>
                              </div>
      `;
         modal.appendChild(creatediv);
 
     } catch (err) {
-        console.log(err)
+        // console.log(err)
     }
 
 }
