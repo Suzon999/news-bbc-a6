@@ -21,6 +21,7 @@ const displayCatagory = categories => {
 
 // load catagory data load -------------------------------------------------------
 const loadCategoryDetails = (id) => {
+    document.getElementById("spinner").style.display = "block";
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => displayCategoryDetails(data.data))
@@ -28,7 +29,21 @@ const loadCategoryDetails = (id) => {
 }
 // display catagory --------------------------------------------------------------=
 const displayCategoryDetails = details => {
+    document.getElementById("spinner").style.display = "none";
 
+    // length chack -----------------------------------------------------------------
+    if (details.length > 0) {
+        const totallength = details.length;
+        const inputfildText = document.getElementById('input-id');
+        inputfildText.innerText = 'Total' + ' ' + '[' + ' ' + totallength + ' ' + ']' + ' Update';
+    } else if (details.length <= 0) {
+
+        const totallength = details.length;
+        const inputfildText = document.getElementById('input-id');
+        inputfildText.innerText = 'Total ' + ' ' + 'Not Update ';
+
+
+    }
     // console.log(details)
     const newsBodyContainer = document.getElementById('news-body');
     newsBodyContainer.innerHTML = ''
@@ -44,7 +59,7 @@ const displayCategoryDetails = details => {
                 <div class="col-md-9">
                     <div class="card-body">
                     <h4 class="card-title">${detail.title}</h4>
-                    <p class="card-text my-3">${detail.details.slice(0, 400)}</p>
+                    <p class="card-text my-4">${detail.details.slice(0, 450) + '.........'}</p>
                     <div class="row d-flex ">
                     <div class="col-lg-4  d-flex">
                         <img class="w-25 rounded-circle me-3" src="${detail.author.img}" alt="">
